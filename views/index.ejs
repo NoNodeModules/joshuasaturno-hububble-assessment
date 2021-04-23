@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poke Fetch</title>
+</head>
+<body>
+  Welcome to pokefetch
+    <form action="/search" method="POST">
+      <input id="search" required name="pokename" type="text">
+      <button type="submit" id="submit" >search pokemon</button>
+    </form>
+    
+  <div id="info">
+    <% if(locals.message){%>
+        <h1><%=locals.message%></h1>
+    <%}%>
+
+    <% if(locals.pokeData){%>
+      <img src="<%=`${pokeData.photo}`%>"/>
+      <h1>Types: <%= pokeData.types.join("/") %></h1>
+      <ul>
+        <li>hp: <%= pokeData.hp%></li>
+        <li>attack: <%= pokeData.attack%></li>
+        <li>defense: <%= pokeData.defense%></li>
+        <li>special-attack: <%= pokeData.spAttack%></li>
+        <li>special-defense: <%= pokeData.spDefense%></li>
+        <li>speed : <%= pokeData.speed%></li>
+      </ul>
+    <%}%>
+
+
+  </div>
+  <script src="./scripts.js"></script>
+</body>
+</html>
